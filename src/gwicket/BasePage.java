@@ -36,6 +36,14 @@ public abstract class BasePage extends WebPage {
 				setResponsePage(LoginPage.class);
 			}
 		};
+		Link signupLink = new Link ("signupLink"){
+			@Override
+			public void onClick(){
+				setResponsePage(Signup.class);
+			}
+		};
+		
+		add (signupLink);
 		
 		add (loginFormlink);
 		add (moviewLink);

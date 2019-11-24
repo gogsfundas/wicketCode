@@ -6,7 +6,7 @@ import org.apache.wicket.validation.validator.PatternValidator;
 public class UNameValidator extends CompoundValidator<String> {
 	UNameValidator()
 	{
-		add(PatternValidator.minimumLength(7));
+		add(PatternValidator.minimumLength(8));
 	}
 	
 }
