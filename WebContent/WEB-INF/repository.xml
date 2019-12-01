@@ -72,19 +72,19 @@
         -->
 
         
-      <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
+     <!--  <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
           <param name="url" value="jdbc:mysqlL//localhost:3306/brix"/>
           <param name="user" value="root"/>
           <param name="password" value="root"/>
           <param name="schemaObjectPrefix" value="${wsp.name}_"/>
           <param name="externalBLOBs" value="false"/>
-      </PersistenceManager>
+      </PersistenceManager> -->
 
 
-       <!--  <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.DerbyPersistenceManager">
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.DerbyPersistenceManager">
             <param name="url" value="jdbc:derby:${wsp.home}/db;create=true"/>
             <param name="schemaObjectPrefix" value="${wsp.name}_"/>
-        </PersistenceManager> -->
+        </PersistenceManager>
 
         <!--
             Search index and the file system it uses.
@@ -116,17 +116,17 @@
             a 'normal' persistence manager, but this could change in future
             implementations.
         -->
-        <!-- <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.DerbyPersistenceManager">
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.DerbyPersistenceManager">
             <param name="url" value="jdbc:derby:${rep.home}/version/db;create=true"/>
             <param name="schemaObjectPrefix" value="version_"/>
-        </PersistenceManager> -->
-          <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
+        </PersistenceManager>
+         <!--  <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
           <param name="url" value="jdbc:mysqlL//localhost:3306/brix"/>
           <param name="user" value="root"/>
           <param name="password" value="root"/>
           <param name="schemaObjectPrefix" value="versioning_"/>
           <param name="externalBLOBs" value="false"/>
-      </PersistenceManager>
+      </PersistenceManager> -->
     </Versioning>
 
     <!--

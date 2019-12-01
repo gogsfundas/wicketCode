@@ -138,7 +138,7 @@ public class WicketApplication extends WebApplication {
 	}
 
 	private void createRepository() throws FileNotFoundException, ConfigurationException, RepositoryException {
-		File home = new File("C:/jcrdemo/");
+		File home = new File("C:/repog/");
 		InputStream configStream = new FileInputStream(home.getAbsoluteFile() + "/" + "repository.xml");
 		RepositoryConfig repoconfig = RepositoryConfig.create(configStream, home.getAbsolutePath());
 		repository = RepositoryImpl.create(repoconfig);
