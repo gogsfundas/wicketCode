@@ -1,4 +1,4 @@
-package com.vinsys.app;
+package gwicket;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -9,7 +9,7 @@ public class IndexPanel extends Panel {
 
 	public IndexPanel(String id, IModel<BrixNode> model) {
 		super(id, model);
-		add(new Label("mylabel","Govind singh "));
+		add(new Label("mylabel", "Govind mahara sir"));
 	}
 
 }

@@ -87,7 +87,7 @@ public class GWicketApplication extends WebApplication {
 	}
 
 	private void registerTiles(BrixConfig config) {
-		//config.getRegistry().register(Tile.POINT, new IndexTile());
+		config.getRegistry().register(Tile.POINT, new IndexTile());
 	//	config.getRegistry().register(Tile.POINT, new ClockTile());
 	}
 
