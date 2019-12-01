@@ -1,9 +1,10 @@
-package gwicket;
+package com.vinsys.app;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import javax.jcr.ImportUUIDBehavior;
 import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
 import javax.jcr.SimpleCredentials;
@@ -27,7 +28,6 @@ import org.brixcms.config.PrefixUriMapper;
 import org.brixcms.config.UriMapper;
 import org.brixcms.jcr.Jcr2WorkspaceManager;
 import org.brixcms.jcr.JcrSessionFactory;
-
 import org.brixcms.jcr.ThreadLocalSessionFactory;
 import org.brixcms.jcr.api.JcrSession;
 import org.brixcms.plugin.menu.MenuPlugin;
@@ -36,14 +36,11 @@ import org.brixcms.plugin.site.SitePlugin;
 import org.brixcms.plugin.site.page.tile.Tile;
 import org.brixcms.plugin.snapshot.SnapshotPlugin;
 import org.brixcms.plugin.webdavurl.WebdavUrlPlugin;
-import org.brixcms.util.JcrUtils;
 import org.brixcms.web.BrixRequestCycleProcessor;
 import org.brixcms.web.nodepage.BrixNodePageUrlCodingStrategy;
 import org.brixcms.workspace.Workspace;
 
-
-
-public class GWicketApplication extends WebApplication {
+public class WicketApplication extends WebApplication {
 	private Brix brix;
 
 	public Brix getBrix() {
@@ -87,8 +84,8 @@ public class GWicketApplication extends WebApplication {
 	}
 
 	private void registerTiles(BrixConfig config) {
-		//config.getRegistry().register(Tile.POINT, new IndexTile());
-	//	config.getRegistry().register(Tile.POINT, new ClockTile());
+		config.getRegistry().register(Tile.POINT, new IndexTile());
+		config.getRegistry().register(Tile.POINT, new ClockTile());
 	}
 
 	private void initWorkspace(JcrSession session, SitePlugin sp) {
@@ -167,43 +164,3 @@ public class GWicketApplication extends WebApplication {
 		super.onDestroy();
 	}
 }
-/*	@Override
-	public Class<? extends Page> getHomePage() {
-		
-		return Homepage.class;
-	}
-
-	@Override
-	public Class<? extends Page> getHomePage() {
-		
-		return BrixNodePageUrlCodingStrategy.HomePage.class;
-				
-	}
-	@Override 
-	protected void init() 
-	{
-		super.init();
-		//create repository for yourself 
-		Repository repo  = JcrUtils.createRepository("file://tmp//brix-jcr");
-		final JcrSessionFactory sf = new ThreadLocalSessionFactory(repo, new SimpleCredentials("admin",
-				"admin".toCharArray()));
-		final org.brixcms.workspace.WorkspaceManager wm =  JcrUtils.createWorkspaceManager("file://tmp//brix-jcr", sf);
-	  UriMapper mapper = new PrefixUriMapper(Path.ROOT) {
-		
-		@Override
-		public Workspace getWorkspaceForRequest(WebRequestCycle requestCycle, Brix brix) {
-			final String name = "file://tmp//brix-jcr";
-			SitePlugin siteplugin =SitePlugin.get(brix);
-			
-			return siteplugin.getSiteWorkspace(name,"");
-		}
-	};
-	BrixConfig config = new BrixConfig(sf, wm, mapper);
-	config.setHttpPort(8080);
-	config.setHttpsPort(8443);
-	getDebugSettings().setOutputMarkupContainerClassName(true);
-	mount(new QueryStringUrlCodingStrategy("/admin",AdminPage.class));
-	}
-
-}
-*/
